@@ -1,4 +1,7 @@
-# Algorithm_CodeUp_Basic100
+# 1. Algorithm_CodeUp_Basic100
+# 2. Algorithm_Programmers
+# 3. Algorithm_Baekjoon
+
 
 ### Solve CodeUp Basic 100 using JAVA
 
