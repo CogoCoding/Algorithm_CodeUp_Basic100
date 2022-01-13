@@ -1,0 +1,75 @@
+// 타인 풀이
+public int solution(String name) {
+  int answer = 0;
+  int len = name.length();
+
+  // 제일 짧은 좌, 우 이동은 그냥 맨 오른쪽으로 이동할 때
+  int min = len - 1;
+
+  for (int i = 0; i < len; i++) {
+    // 상하 이동
+    char c = name.charAt(i);
+    int mov = (c - 'A' < 'Z' - c + 1) ? (c - 'A') : ('Z' - c + 1);
+    answer += mov;
+
+    // 좌우 이동
+    int nextIndex = i + 1;
+    // 다음 단어가 A이고, 단어가 끝나기 전까지 nextIndex 증가
+    while (nextIndex < len && name.charAt(nextIndex) == 'A')
+      nextIndex++;
+
+    min = Math.min(min, (i * 2) + len - nextIndex);
+  }
+
+  answer += min;
+
+  return answer;
+}
+
+
+
+
+// 틀린 시도
+   public void main(String[] args) {
+        String name = "AAAA";
+        System.out.print(solution(name));
+    }
+
+    public int solution(String name) {
+        int answer = 0;
+        int len = name.length();
+
+        // 좌우 나눠서 중심과 가장 가까운 것의 인덱스끼리 비교
+        int minR = len/2;
+        int maxL = len/2;
+        boolean aR = false;
+        boolean aL = false;
+
+        // 좌우 나눠서 중심과 가장 가까운 것의 인덱스끼리 비교
+        for (int i = 0; i < len/2; i++) {
+            if (name.charAt(i) == 'A') {
+                maxL = i;
+                aL = true;
+            }
+        }
+        for (int i=len;i>=len/2;i--){
+            if (name.charAt(i)=='A'){
+                minR = i;
+                aR = true;
+            }
+        }
+
+        // 기본은 R탐색이 유리
+        // 단, 중심과의 거리차이가 (즉, Math.abs(maxL-중심)과 Math.abs(minR-중심)의 차이) 1이면 = , 2이상면 L탐색
+        int dstL = Math.abs(maxL-len/2);
+        int dstR = Math.abs(minR-len/2);
+        int std = dstR-dstL;
+        char direction = 'R';
+        int dst = 0;
+        if(std>1){
+            direction='L';
+        }else if (std == 1) {
+        }else{
+        }
+        return answer;
+    }
