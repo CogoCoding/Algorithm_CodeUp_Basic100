@@ -1,4 +1,6 @@
 ### CODE UP
+// remaining questions out of 100 questions
+
 package com.company;
 import java.util.Scanner;
 
