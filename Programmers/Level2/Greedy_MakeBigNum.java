@@ -30,7 +30,7 @@ public class Greedy_MakeBigNum {
     }
 }
 
-// trial 3 _ 10번 테스트케이스 시간초과 -> StringBuffer로 정정
+// trial 3 _ 10번 테스트케이스 시간초과 -> StringBr로 정정
 // 출력 버전
 //     public static String solution(String number, int k) {
 //        String answer = "";
