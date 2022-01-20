@@ -1,10 +1,10 @@
-### CODE UP
+// ### CODE UP
 // remaining questions out of 100 questions
 
-package com.company;
+package CodeUp;
 import java.util.Scanner;
 
-public class Main {
+class Main {
     public static void main(String[] args) {
 
 // # 1082 # 미완
