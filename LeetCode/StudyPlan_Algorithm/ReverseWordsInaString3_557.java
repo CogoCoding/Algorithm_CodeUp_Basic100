@@ -1,7 +1,7 @@
 package LeetCode.StudyPlan_Algorithm;
 
 public class ReverseWordsInaString3_557 {
-    public void main(String[] args) {
+    public static void main(String[] args){
         String s = "Let's take LeetCode contest";
         String ans = reverseString(s);
         System.out.print(ans);
@@ -9,7 +9,7 @@ public class ReverseWordsInaString3_557 {
 
 
 // Runtime : 10 ms Memory : 50.6 M
-public String reverseString(String s) {
+public static String reverseString(String s) {
     s +=" ";
     StringBuilder ans = new StringBuilder();
     int start=0,idx;
