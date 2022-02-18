@@ -1,4 +1,4 @@
-package Programmers.Level2;
+package Programmers.Level1;
 // 2가지 풀이방법 정규식.ver , (정규식사용안한)안정규식.ver
 public class Kakao_RecommendNewId {
 
