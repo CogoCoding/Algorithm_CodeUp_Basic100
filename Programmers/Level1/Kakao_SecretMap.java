@@ -18,40 +18,64 @@ public class Kakao_SecretMap {
     }
 
     public static String[] solution(int n, int[] arr1, int[] arr2) {
+
+        // 여기까지 decoding
         // int로 받으면 앞에 0이 사라져서 5*5 배열인데 //1001 등이 되기도 한다. 따라서 문자열로 처리
         String[] ans = new String[n];
         int[][] ar1 = new int[n][n];
         int[][] ar2 = new int[n][n];
 
+        String s1 = "", s2="" ;
         // 먼저 1*1 배열을 2진수 2*2배열로 변환
         for (int i = 0; i < n; i++) {
             //2진법 처리 https://21413011.tistory.com/49
-            String s1 = String.format("%0" + n + "d", Integer.parseInt(Integer.toBinaryString(arr1[i])));
-            String s2 = String.format("%0" + n + "d", Integer.parseInt(Integer.toBinaryString(arr2[i])));
-            System.out.println("1 : "+ s1);
-            System.out.println("2 : "+s2);
+            // (1) arr의 원소인 int를 2진법 string으로 바꾸고
+            // (2) 그걸 다시 integer.parseInt로 int형변환 후
+            // (3) String.format으로 다시 int로 바꿔줌
+
+            s1 = String.format("%0" + n + "d", Integer.parseInt(Integer.toBinaryString(arr1[i])));
+            s2 = String.format("%0" + n + "d", Integer.parseInt(Integer.toBinaryString(arr2[i])));
+
             for (int m = 0;m < s1.length(); m++) {
-                ar1[m][i] = Integer.parseInt(s1.charAt(m)+"");
-                ar2[m][i] = Integer.parseInt(s2.charAt(m)+"");
+                ar1[i][m] = Integer.parseInt(s1.charAt(m)+"");
+                ar2[i][m] = Integer.parseInt(s2.charAt(m)+"");
             }
         }
-        // 2
+
         // 두 2*2 배열의 같은 인덱스 비교해서 둘다 공백이면 공백(0)으로, 나머지는 다 벽(1)으로
-        for (int k = 0; k < ar1.length; k++) {
+          for (int k = 0; k < ar1.length; k++) {
             String str="";
+            System.out.println();
             for (int f = 0; f < ar1[k].length; f++) {
-                if(ar1[k][f]+ar2[k][f]>0){
-                    str+="#";
-                }else{
-                    str+=" ";
-                }
+//                모범답안
+                String s = (ar1[k][f] | ar2[k][f])==1 ? "#":" ";
+                str=s;
+//                내꺼
+//                if(ar1[k][f]+ar2[k][f]>0){
+//                    str+="#";
+//                }else if(ar1[k][f]+ar2[k][f]==0){
+//                    str+=" ";
+//                }
             }
+            System.out.println();
             ans[k]=str;
         }
         return ans;
     }
 }
 
+//    for(int i = 0; i < n; i++){
+//        ans[i] = ans[i].replaceAll("[1]", "#");
+//        ans[i] = ans[i].replaceAll("[0]", " ");
+//            s1 = s1.replaceAll("0", " ");
+//            s2 = s2.replaceAll("1", "#");
+//        }
+
+//모범 답안
+// String[] map 만들고
+//int[] 이거 2개 먼저
+//int[]
+// append로 (map1[j]|
 
 // 배열 출력 확인용 코드
 // ar1,ar2
